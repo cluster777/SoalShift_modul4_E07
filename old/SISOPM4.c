@@ -210,7 +210,7 @@ static int xmp_mknod(const char *path, mode_t mode, dev_t rdev)
 		res = mknod(path, mode, rdev);
 	if (res == -1)
 		return -errno;
- if(strstr("@ZA>AXio",fname))chmod(fname,"0640" );
+if(strstr("YOUTUBER",lawas)==0)chmod(pathnew,"0640" );
 	return 0;
 }
 static int xmp_mkdir(const char *path, mode_t mode)
@@ -236,32 +236,15 @@ static int xmp_mkdir(const char *path, mode_t mode)
     res = mkdir(fname, mode);
     if (res == -1)
         return -errno;
-    if(strstr("@ZA>AXio",fname))system ("touch /home/arino/test");
-    //chmod(fname,"0750" )
+    if(strstr("YOUTUBER",lawas)==0)chmod(pathnew,"0750" );
     return 0;
 }
 
 static int xmp_chmod(const char *path, mode_t mode)
 {
     int res;
-    char name[MAX_PATH], fname[MAX_PATH], lawas[MAX_PATH], pathnew[MAX_PATH];
-    memset(fname, '\0', MAX_PATH);
-    strcpy(lawas, path);
-        if(strcmp(path,"/") == 0)
-        {
-            path = dirpath;
-            sprintf(fname, "%s", path);
-        }
-        else
-        {
-            strcpy(name, path);
-            caesar(name, strlen(name), ENCRYPT);
-            memset(fname, '\0', MAX_PATH);
-            strcat(fname, dirpath);
-            strcat(fname, name);
-        }
-    sprintf(pathnew,"%s%s",path,fname);
-    res = chmod(fname, mode);
+
+    res = chmod(path, mode);
     if (res == -1)
         return -errno;
 
